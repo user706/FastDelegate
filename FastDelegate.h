@@ -1666,8 +1666,12 @@ public:
 
   FastDelegate(R (*function_to_bind)(  ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(  ) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=1
@@ -1703,8 +1707,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=2
@@ -1740,8 +1748,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1, Param2 p2 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1, Param2 p2) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=3
@@ -1777,8 +1789,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1, Param2 p2, Param3 p3 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1, Param2 p2, Param3 p3) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=4
@@ -1814,8 +1830,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1, Param2 p2, Param3 p3, Param4 p4 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1, Param2 p2, Param3 p3, Param4 p4) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=5
@@ -1851,8 +1871,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=6
@@ -1888,8 +1912,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5, Param6 p6 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5, Param6 p6) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=7
@@ -1925,8 +1953,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5, Param6 p6, Param7 p7 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5, Param6 p6, Param7 p7) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 //N=8
@@ -1962,8 +1994,12 @@ public:
 
   FastDelegate(R (*function_to_bind)( Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5, Param6 p6, Param7 p7, Param8 p8 ))
     : BaseType(function_to_bind)  { }
+
   void operator = (const BaseType &x)  {	  
 		*static_cast<BaseType*>(this) = x; }
+
+  void operator = (R (*function_to_bind)(Param1 p1, Param2 p2, Param3 p3, Param4 p4, Param5 p5, Param6 p6, Param7 p7, Param8 p8) ) {
+                *static_cast<BaseType*>(this) = function_to_bind; }
 };
 
 
