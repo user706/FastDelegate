@@ -5,7 +5,7 @@
 // It's a really boring example, but it shows the most important cases.
 
 // Declare some functions of varying complexity...
-void SimpleStaticFunction(int num, char *str) {
+void SimpleStaticFunction(int num, const char *str) {
 	printf("In SimpleStaticFunction. Num=%d, str = %s\n", num, str);
 }
 
@@ -15,18 +15,18 @@ void SimpleVoidFunction() {
 
 class CBaseClass {
 protected:
-	char *m_name;
+	const char *m_name;
 public:
-	CBaseClass(char *name) : m_name(name) {};
-	void SimpleMemberFunction(int num, char *str) {
+	CBaseClass(const char *name) : m_name(name) {};
+	void SimpleMemberFunction(int num, const char *str) {
 		printf("In SimpleMemberFunction in %s. Num=%d, str = %s\n", m_name, num, str);	}
-	int SimpleMemberFunctionReturnsInt(int num, char *str) {
+	int SimpleMemberFunctionReturnsInt(int num, const char *str) {
 		printf("In SimpleMemberFunction in %s. Num=%d, str = %s\n", m_name, num, str); return -1;	}
-	void ConstMemberFunction(int num, char *str) const {
+	void ConstMemberFunction(int num, const char *str) const {
 		printf("In ConstMemberFunction in %s. Num=%d, str = %s\n", m_name, num, str);	}
-	virtual void SimpleVirtualFunction(int num, char *str) {
+	virtual void SimpleVirtualFunction(int num, const char *str) {
 		printf("In SimpleVirtualFunction in %s. Num=%d, str = %s\n", m_name, num, str);	}
-	static void StaticMemberFunction(int num, char *str) {
+	static void StaticMemberFunction(int num, const char *str) {
 		printf("In StaticMemberFunction. Num=%d, str =%s\n", num, str);	}
 };
 
@@ -34,7 +34,7 @@ class COtherClass {
 	double rubbish; // to ensure this class has non-zero size.
 public:
 	virtual void UnusedVirtualFunction(void) { }
-	virtual void TrickyVirtualFunction(int num, char *str)=0;
+	virtual void TrickyVirtualFunction(int num, const char *str)=0;
 };
 
 class VeryBigClass {
@@ -47,9 +47,9 @@ class CDerivedClass : public VeryBigClass, virtual public COtherClass, virtual p
 	double m_somemember[8];
 public:
 	CDerivedClass() : CBaseClass("Base of Derived") { m_somemember[0]=1.2345; }
-	void SimpleDerivedFunction(int num, char *str) { printf("In SimpleDerived. num=%d\n", num); }
-	virtual void AnotherUnusedVirtualFunction(int num, char *str) {}
-	virtual void TrickyVirtualFunction(int num, char *str) {
+	void SimpleDerivedFunction(int num, const char *str) { printf("In SimpleDerived. num=%d\n", num); }
+	virtual void AnotherUnusedVirtualFunction(int num, const char *str) {}
+	virtual void TrickyVirtualFunction(int num, const char *str) {
 		printf("In Derived TrickyMemberFunction. Num=%d, str = %s\n", num, str);
 	}
 };
@@ -67,13 +67,13 @@ int main(void)
 
 	noparameterdelegate(); // invoke the delegate - this calls SimpleVoidFunction()
 
-	printf("\n-- Examples using two-parameter delegates (int, char *) --\n\n");
+	printf("\n-- Examples using two-parameter delegates (int, const char *) --\n\n");
 
     // By default, the return value is void.
-    typedef FastDelegate2<int, char *> MyDelegate;
+    typedef FastDelegate2<int, const char *> MyDelegate;
 
 	// If you want to have a non-void return value, put it at the end.
-    typedef FastDelegate2<int, char *, int> IntMyDelegate;
+    typedef FastDelegate2<int, const char *, int> IntMyDelegate;
 
 
 	MyDelegate funclist[12]; // delegates are initialized to empty
@@ -123,7 +123,7 @@ int main(void)
 	// You can also bind directly using the constructor
         MyDelegate dg(&b, &CBaseClass::SimpleVirtualFunction);
 
-	char *msg = "Looking for equal delegate";
+	const char *msg = "Looking for equal delegate";
 	for (int i=0; i<12; i++) {
 		printf("%d :", i);
 		// The == and != operators are provided
